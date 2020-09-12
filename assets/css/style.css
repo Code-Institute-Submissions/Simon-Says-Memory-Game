@@ -27,17 +27,17 @@ body {
     padding-left: 10px;
 }
 
-.start {
+.power {
     position: absolute;
     margin-left: 19px;
     margin-top: 142px;
 }
 
-.start span:first-child {
+.power span:first-child {
     padding-left: 10px;
 }
 
-.start span:last-child {
+.power span:last-child {
     padding-left: 90px;
 }
 

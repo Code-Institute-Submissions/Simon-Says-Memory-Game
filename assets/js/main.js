@@ -126,3 +126,55 @@ function clearColor() {
   redPanel.style.backgroundColor = "#a50000";
   yellowPanel.style.backgroundColor = "#ffcb0c";
 }
+
+bluePanel.addEventListener('click', (event) => {
+    if (on) {
+        playerOrder.push(1);
+        //check();
+        one();
+        if (!win) {
+            setTimeout(() => {
+                clearColor();
+            }, 300);
+        }
+    }
+})
+
+greenPanel.addEventListener('click', (event) => {
+    if (on) {
+        playerOrder.push(2);
+        //check();
+        two();
+        if (!win) {
+            setTimeout(() => {
+                clearColor();
+            }, 300);
+        }
+    }
+})
+
+redPanel.addEventListener('click', (event) => {
+    if (on) {
+        playerOrder.push(3);
+        //check();
+        three();
+        if (!win) {
+            setTimeout(() => {
+                clearColor();
+            }, 300);
+        }
+    }
+})
+
+yellowPanel.addEventListener('click', (event) => {
+    if (on) {
+        playerOrder.push(4);
+        //check();
+        four();
+        if (!win) {
+            setTimeout(() => {
+                clearColor();
+            }, 300);
+        }
+    }
+})

@@ -15,3 +15,7 @@ const bluePanel = document.querySelector("#bluePanel");
 const greenPanel = document.querySelector("#greenPanel");
 const redPanel = document.querySelector("#redPanel");
 const yellowPanel = document.querySelector("#yellowPanel");
+const harshButton = document.querySelector("#harsh");
+const onButton = document.querySelector("#on");
+const startButton = document.querySelector("#start");
+

@@ -127,10 +127,17 @@ function clearColor() {
   yellowPanel.style.backgroundColor = "#ffcb0c";
 }
 
+function flashColor() {
+  bluePanel.style.backgroundColor = "lightskyblue";
+  greenPanel.style.backgroundColor = "lightgreen";
+  redPanel.style.backgroundColor = "tomato";
+  yellowPanel.style.backgroundColor = "yellow";
+}
+
 bluePanel.addEventListener('click', (event) => {
     if (on) {
         playerOrder.push(1);
-        //check();
+        check();
         one();
         if (!win) {
             setTimeout(() => {
@@ -143,7 +150,7 @@ bluePanel.addEventListener('click', (event) => {
 greenPanel.addEventListener('click', (event) => {
     if (on) {
         playerOrder.push(2);
-        //check();
+        check();
         two();
         if (!win) {
             setTimeout(() => {
@@ -156,7 +163,7 @@ greenPanel.addEventListener('click', (event) => {
 redPanel.addEventListener('click', (event) => {
     if (on) {
         playerOrder.push(3);
-        //check();
+        check();
         three();
         if (!win) {
             setTimeout(() => {
@@ -169,7 +176,7 @@ redPanel.addEventListener('click', (event) => {
 yellowPanel.addEventListener('click', (event) => {
     if (on) {
         playerOrder.push(4);
-        //check();
+        check();
         four();
         if (!win) {
             setTimeout(() => {
@@ -178,3 +185,49 @@ yellowPanel.addEventListener('click', (event) => {
         }
     }
 })
+
+function check() {
+    if (playerOrder[playerOrder.length - 1] !== order[playerOrder.length - 1])
+    good = false;
+
+    if (playerOrder.length == 20 && good) {
+        winGame();
+    }
+
+    if (good == false) {
+        flashColor();
+        turnCounter.innerHTML = "NO!";
+        setTimeout(() => {
+            turnCounter.innerHTML = turn;
+            clearColor();
+
+            if (harsh) {
+                play();
+            } else {
+                compTurn = true;
+                flash = 0;
+                playerOrder = [];
+                good = true;
+                intervalId = setInterval(gameTurn, 800);
+            }
+        }, 800);
+
+        noise = false;
+    }
+
+    if (turn == playerOrder.length && good && !win) {
+        turn++;
+        playerOrder = [];
+        compTurn = true;
+        flash = 0;
+        turnCounter.innerHTML = turn;
+        intervalId = setInterval(gameTurn, 800);
+    }
+}
+
+function winGame() {
+    flashColor();
+    turnCounter.innerHTML = "WIN!";
+    on = false;
+    win = true;
+}

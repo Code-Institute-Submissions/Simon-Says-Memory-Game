@@ -20,7 +20,7 @@ const onButton = document.querySelector("#on");
 const startButton = document.querySelector("#start");
 
 harshButton.addEventListener('click', (event) => {
-    if (harshButton.checked == true) {
+    if (harshButton.checked === true) {
         harsh = true;
     } else {
         harsh = false;
@@ -28,7 +28,7 @@ harshButton.addEventListener('click', (event) => {
 });
 
 onButton.addEventListener('click', (event) => {
-  if (onButton.checked == true) {
+  if (onButton.checked === true) {
     on = true;
     turnCounter.innerHTML = "--";
   } else {
@@ -65,7 +65,7 @@ function play() {
 function gameTurn() {
   on = false;
 
-  if (flash == turn) {
+  if (flash === turn) {
     clearInterval(intervalId);
     compTurn = false;
     clearColor();
@@ -75,10 +75,10 @@ function gameTurn() {
   if (compTurn) {
     clearColor();
     setTimeout(() => {
-      if (order[flash] == 1) one();
-      if (order[flash] == 2) two();
-      if (order[flash] == 3) three();
-      if (order[flash] == 4) four();
+      if (order[flash] === 1) one();
+      if (order[flash] === 2) two();
+      if (order[flash] === 3) three();
+      if (order[flash] === 4) four();
       flash++;
     }, 200);
   }
@@ -117,7 +117,7 @@ function four() {
     audio.play();
   }
   noise = true;
-  yellowPanel.style.backgroundColor = "yellow";
+  yellowPanel.style.backgroundColor = "lightyellow";
 }
 
 function clearColor() {
@@ -131,7 +131,7 @@ function flashColor() {
   bluePanel.style.backgroundColor = "lightskyblue";
   greenPanel.style.backgroundColor = "lightgreen";
   redPanel.style.backgroundColor = "tomato";
-  yellowPanel.style.backgroundColor = "yellow";
+  yellowPanel.style.backgroundColor = "lightyellow";
 }
 
 bluePanel.addEventListener('click', (event) => {
@@ -185,16 +185,18 @@ yellowPanel.addEventListener('click', (event) => {
         }
     }
 })
-
+/**
+ * 
+ */
 function check() {
     if (playerOrder[playerOrder.length - 1] !== order[playerOrder.length - 1])
     good = false;
 
-    if (playerOrder.length == 20 && good) {
+    if (playerOrder.length == 2 && good) {
         winGame();
     }
 
-    if (good == false) {
+    if (good === false) {
         flashColor();
         turnCounter.innerHTML = "NO!";
         setTimeout(() => {

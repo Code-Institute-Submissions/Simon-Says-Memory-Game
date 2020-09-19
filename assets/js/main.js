@@ -218,7 +218,7 @@ function check() {
     if (playerOrder[playerOrder.length - 1] !== order[playerOrder.length - 1])
     good = false;
 
-    if (playerOrder.length === 2 && good) {
+    if (playerOrder.length === 20 && good) {
         winGame();      /*Sets the win condition*/
     }
 
@@ -249,7 +249,7 @@ function check() {
 
     /*The game keeps increasing the amount of turns based on the success of the player and not yet winning the game*/
 
-    if (turn == playerOrder.length && good && !win) {
+    if (turn === playerOrder.length && good && !win) {
         turn++;
         playerOrder = [];
         compTurn = true;
@@ -266,5 +266,5 @@ function winGame() {
     turnCounter.innerHTML = "WIN!";
     on = false;
     win = true;
-    alert("You won? Really? Do it again to prove it wasn't a one off!")
+    setTimeout(() => {alert("You won? Really? Do it again to prove it wasn't a one off!");}, 50); /*Added an alert message to say the player won and to try again*/
 }

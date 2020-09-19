@@ -8,6 +8,7 @@ body {
     margin-right: 20px;
 }
 
+/*Styling for the start button*/
 .button {
     border-radius: 50% !important;
     font-size: 1.5em;
@@ -21,11 +22,15 @@ body {
     border-color: #000000;
 }
 
+/*Styling fo the switches ID*/
+
 #switches {
     position: absolute;
     margin-left: 26px;
     margin-top: 110px;
 }
+
+/*Styling for the count box*/
 
 .count {
     position: absolute;
@@ -33,6 +38,8 @@ body {
     margin-top: 200px;
     padding-left: 10px;
 }
+
+/*Styling for the power checkbox elements*/
 
 .power {
     position: absolute;
@@ -48,6 +55,8 @@ body {
     padding-left: 90px;
 }
 
+/*Styling for the title of the game*/
+
 #title {
     position: absolute;
     font-size: 40px;
@@ -55,6 +64,8 @@ body {
     margin-top: 40px;
     padding-left: 20px;
 }
+
+/*Styling for the turn counter box and text inside it*/
 
 #turn {
     position: absolute;
@@ -70,6 +81,8 @@ body {
     line-height: 30px;
 }
 
+/*Styling for the game itself, not including thencoloured panels or the middle section*/
+
 #machineContainer {
     background-color: grey;
     border-radius: 50%;
@@ -82,6 +95,8 @@ body {
     margin-top: 60px;
     box-shadow: 8px 8px 15px 5px #888888;
 }
+
+/*Styling for the coloured panels*/
 
 #bluePanel {
     position: absolute;
@@ -154,6 +169,8 @@ body {
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
 }
+
+/*Styling for the middle section of the game, not including the buttons or checkboxes*/
 
 #middle {
     position: absolute;

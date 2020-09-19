@@ -4,11 +4,13 @@ let flash;                                                  /*Number of flashes 
 let turn;                                                   /*Keeps track on what turn we're on*/
 let good;                                                   /*If the player has hit the correct colours*/
 let compTurn;                                               /*See's if it's the computers turn or the players*/
-let intervalId;                                             /* */
+let intervalId;                                             /*Used to stop the game flashing colours*/
 let harsh = false;                                          /*Checks if the harder dificulty is off. Game begins with this difficulty off*/
 let noise = true;                                           /*Sound when panels are flashed or clicked*/
 let on = false;                                             /*If the game has been turned on. Game begins off*/
 let win;                                                    /*If game has been won*/
+
+/*Sets constants taht are used to reference elements in HTML to add interactivity to the game*/
 
 const turnCounter = document.querySelector("#turn");        
 const bluePanel = document.querySelector("#bluePanel");
@@ -19,6 +21,8 @@ const harshButton = document.querySelector("#harsh");
 const onButton = document.querySelector("#on");
 const startButton = document.querySelector("#start");
 
+/*What happens when the harsh button is checked*/
+
 harshButton.addEventListener('click', (event) => {
     if (harshButton.checked === true) {
         harsh = true;
@@ -26,6 +30,8 @@ harshButton.addEventListener('click', (event) => {
         harsh = false;
     }
 });
+
+/*What happens when the power button is checked. Also shows the turn counter is working as "--" shows in the box when on and "" empty when power is off*/
 
 onButton.addEventListener('click', (event) => {
   if (onButton.checked === true) {
@@ -39,11 +45,15 @@ onButton.addEventListener('click', (event) => {
   }
 });
 
+/*What happens when the start button is clicked*/
+
 startButton.addEventListener('click', (event) => {
   if (on || win) {
     play();
   }
 });
+
+/*What happens when the game plays. Variables are reset for the beginning of the game. The turn counter box shows the first move as the game has begun*/
 
 function play() {
   win = false;
@@ -54,23 +64,25 @@ function play() {
   turn = 1;
   turnCounter.innerHTML = 1;
   good = true;
-  for (var i = 0; i < 20; i++) {
+  for (var i = 0; i < 20; i++) {                        /*Loop that shows how the random panels are picked when the game is played*/
     order.push(Math.floor(Math.random() * 4) + 1);
   }
   compTurn = true;
 
-  intervalId = setInterval(gameTurn, 800);
+  intervalId = setInterval(gameTurn, 800);              /*Runs the function everytime the time stated is reached*/
 }
 
 function gameTurn() {
-  on = false;
+  on = false;                                           /*This stops the player clicking the coloured panels when the game is off*/
 
-  if (flash === turn) {
+  if (flash === turn) {                                 /*Flash means a turn is completed and the couloured panels colour will be cleared*/
     clearInterval(intervalId);
     compTurn = false;
     clearColor();
     on = true;
   }
+
+/*Assigns the numbers 1-4 to a different coloured panel and calls the function to flash the correct sequence of colours for the computers turn*/
 
   if (compTurn) {
     clearColor();
@@ -83,6 +95,8 @@ function gameTurn() {
     }, 200);
   }
 }
+
+/*Shows the functions that will be called from the number in the order array. Adds a sound when a panel is flashed and changes the colour of the panels too*/
 
 function one() {
   if (noise) {
@@ -120,6 +134,8 @@ function four() {
   yellowPanel.style.backgroundColor = "lightyellow";
 }
 
+/*Colours of the panels when they have not been flashed or clicked*/
+
 function clearColor() {
   bluePanel.style.backgroundColor = "#0000a5";
   greenPanel.style.backgroundColor = "#024b30";
@@ -127,12 +143,16 @@ function clearColor() {
   yellowPanel.style.backgroundColor = "#ffcb0c";
 }
 
+/*Colours of the panels when they have been flashed or clicked*/
+
 function flashColor() {
   bluePanel.style.backgroundColor = "lightskyblue";
   greenPanel.style.backgroundColor = "lightgreen";
   redPanel.style.backgroundColor = "tomato";
   yellowPanel.style.backgroundColor = "lightyellow";
 }
+
+/*Keeps track of when the player has clicked the blue panel*/
 
 bluePanel.addEventListener('click', (event) => {
     if (on) {
@@ -147,6 +167,8 @@ bluePanel.addEventListener('click', (event) => {
     }
 })
 
+/*Keeps track of when the player has clicked the green panel*/
+
 greenPanel.addEventListener('click', (event) => {
     if (on) {
         playerOrder.push(2);
@@ -159,6 +181,8 @@ greenPanel.addEventListener('click', (event) => {
         }
     }
 })
+
+/*Keeps track of when the player has clicked the red panel*/
 
 redPanel.addEventListener('click', (event) => {
     if (on) {
@@ -173,6 +197,8 @@ redPanel.addEventListener('click', (event) => {
     }
 })
 
+/*Keeps track of when the player has clicked the yellow panel*/
+
 yellowPanel.addEventListener('click', (event) => {
     if (on) {
         playerOrder.push(4);
@@ -185,9 +211,7 @@ yellowPanel.addEventListener('click', (event) => {
         }
     }
 })
-/**
- * 
- */
+
 function check() {
     if (playerOrder[playerOrder.length - 1] !== order[playerOrder.length - 1])
     good = false;

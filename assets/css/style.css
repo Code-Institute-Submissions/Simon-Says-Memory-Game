@@ -11,7 +11,14 @@ body {
 .button {
     border-radius: 50% !important;
     font-size: 1.5em;
-    background-color: orange;
+    background-color: #ffffff;
+    transition: 0.4s;
+    border-color: transparent;
+}
+
+.button:hover {
+    background-color: #ffa500;
+    border-color: #000000;
 }
 
 #switches {

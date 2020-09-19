@@ -192,7 +192,7 @@ function check() {
     if (playerOrder[playerOrder.length - 1] !== order[playerOrder.length - 1])
     good = false;
 
-    if (playerOrder.length == 2 && good) {
+    if (playerOrder.length == 20 && good) {
         winGame();
     }
 
@@ -212,7 +212,7 @@ function check() {
                 good = true;
                 intervalId = setInterval(gameTurn, 800);
             }
-        }, 800);
+        }, 100);
 
         noise = false;
     }

@@ -218,7 +218,7 @@ function check() {
     if (playerOrder[playerOrder.length - 1] !== order[playerOrder.length - 1])
     good = false;
 
-    if (playerOrder.length === 20 && good) {
+    if (playerOrder.length === 2 && good) {
         winGame();      /*Sets the win condition*/
     }
 
@@ -231,9 +231,9 @@ function check() {
         setTimeout(() => {
             turnCounter.innerHTML = turn;
             clearColor();
-            alert("Oh it's over? You only reached level " + turn + "! Failure is not an option! Give it another try I know you can win this!")
+            alert("Oh it's over? You only reached level " + turn + "! Failure is not an option! Give it another try I know you can win this!") /*Alert to stop the browser to show a funny message when the player has failed and to try again to beat the game*/
 
-            if (harsh) {
+            if (harsh) {        /*Sets the condition that "Harsh" mode is activated and the game will restart on failure*/
                 play();
             } else {
                 compTurn = true;
@@ -242,10 +242,12 @@ function check() {
                 good = true;
                 intervalId = setInterval(gameTurn, 800);
             }
-        }, 100);
+        }, 100);  /*Interval shortened to stop the player clicking when the computer hasn't finished it's turn*/
 
         noise = false;
     }
+
+    /*The game keeps increasing the amount of turns based on the success of the player and not yet winning the game*/
 
     if (turn == playerOrder.length && good && !win) {
         turn++;
@@ -257,9 +259,12 @@ function check() {
     }
 }
 
+/*This is what happens when the game has been won!*/
+
 function winGame() {
     flashColor();
     turnCounter.innerHTML = "WIN!";
     on = false;
     win = true;
+    alert("You won? Really? Do it again to prove it wasn't a one off!")
 }

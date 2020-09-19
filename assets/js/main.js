@@ -212,13 +212,18 @@ yellowPanel.addEventListener('click', (event) => {
     }
 })
 
+/*Function that checks if the player has failed yet. Also to check that the game is still running*/
+
 function check() {
     if (playerOrder[playerOrder.length - 1] !== order[playerOrder.length - 1])
     good = false;
 
-    if (playerOrder.length == 20 && good) {
-        winGame();
+    if (playerOrder.length === 20 && good) {
+        winGame();      /*Sets the win condition*/
     }
+
+
+    /*This sets what happens when the player fails a sequence, the turn counter box will show NO! to indicate the wrong input and restart the current sequence*/
 
     if (good === false) {
         flashColor();
@@ -226,6 +231,7 @@ function check() {
         setTimeout(() => {
             turnCounter.innerHTML = turn;
             clearColor();
+            alert("Oh it's over? You only reached level " + turn + "! Failure is not an option! Give it another try I know you can win this!")
 
             if (harsh) {
                 play();

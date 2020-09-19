@@ -100,6 +100,8 @@ https://codepen.io/BenLBlood/pen/LGLEoJ - Used this as a guide on how to build t
 
 https://www.w3schools.com/jsref/met_win_alert.asp - Found this page on how to add alerts into JavaScript. 
 
+https://github.com/Code-Institute-Submissions/simon-says-project-1 - I also used this code when placing alerts in my code. I saw how this was done in the code in link to left and added two of my own.
+
 https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/setTimeout - Need to give credit to this page as it explained what setTimeouts were and how they can be useful.
 
 I wanted to pay a special credit to the tutor support namely Tim. I needed help with my first attempt and this one. Tim aided me with a handful of issues which he helped me solve all and got me into a position to be able to submit.

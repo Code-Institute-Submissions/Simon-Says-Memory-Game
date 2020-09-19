@@ -1,16 +1,16 @@
-let order = [];
-let playerOrder = [];
-let flash;
-let turn;
-let good;
-let compTurn;
-let intervalId;
-let harsh = false;
-let noise = true;
-let on = false;
-let win;
+let order = [];                                             /*Keeps track of flashing coloured panels*/
+let playerOrder = [];                                       /*The order the player presses the panels*/
+let flash;                                                  /*Number of flashes in game*/
+let turn;                                                   /*Keeps track on what turn we're on*/
+let good;                                                   /*If the player has hit the correct colours*/
+let compTurn;                                               /*See's if it's the computers turn or the players*/
+let intervalId;                                             /* */
+let harsh = false;                                          /*Checks if the harder dificulty is off. Game begins with this difficulty off*/
+let noise = true;                                           /*Sound when panels are flashed or clicked*/
+let on = false;                                             /*If the game has been turned on. Game begins off*/
+let win;                                                    /*If game has been won*/
 
-const turnCounter = document.querySelector("#turn");
+const turnCounter = document.querySelector("#turn");        
 const bluePanel = document.querySelector("#bluePanel");
 const greenPanel = document.querySelector("#greenPanel");
 const redPanel = document.querySelector("#redPanel");
